@@ -1,0 +1,18 @@
+[
+    {
+        "id": 0,
+        "nome": "inspeeeer",
+        "cidade": "S\u00e3o Paulo - SP",
+        "endereco": "rua quata 300",
+        "capacidade": 2500,
+        "telefone": "(11) 4504-2400"
+    },
+    {
+        "id": 1,
+        "nome": "casa",
+        "cidade": "S\u00e3o Paulo - SP",
+        "endereco": "rua prof v a 183",
+        "capacidade": 6,
+        "telefone": "null"
+    }
+]
