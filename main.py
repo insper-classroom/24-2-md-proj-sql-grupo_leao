@@ -75,7 +75,6 @@ def create_local(local: Local, session: SessionDep) -> Local:
     session.refresh(local)
     return local
 
-
 @app.get("/locals/", response_model=List[Local], tags=["Locals"], summary='Fetches all locals', description="Retrieves all locals (locations) from the database. The list includes all the locals stored, with details like name, address, city, capacity, and phone number.")
 def read_locals(
     session: SessionDep,
