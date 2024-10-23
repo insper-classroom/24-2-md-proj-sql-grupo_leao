@@ -17,7 +17,6 @@ class Local(SQLModel, table=True):
     telefone: str = Field(..., title="Phone",
                           description="Contact phone number for the location")
 
-
 class LocalUpdate(SQLModel):
     nome: Optional[str] = Field(None, title="Location Name",
                                 description="Updated name of the location")
@@ -30,7 +29,6 @@ class LocalUpdate(SQLModel):
     cidade: Optional[str] = Field(
         None, title="City", description="Updated city where the location is situated")
 
-
 class EventType(SQLModel, table=True):
     id: int = Field(default=None, primary_key=True, title="Event Type ID",
                     description="Unique identifier for the event type", nullable=False)
@@ -41,7 +39,6 @@ class EventType(SQLModel, table=True):
     publico_alvo: str = Field(..., title="Target Audience",
                               description="The target audience for the event type")
 
-
 class EventTypeUpdate(SQLModel):
     categoria: Optional[str] = Field(
         None, title="Category", description="Updated category of the event type, such as music, technology, etc.")
@@ -49,7 +46,6 @@ class EventTypeUpdate(SQLModel):
         None, title="Description", description="Updated description of the event type")
     publico_alvo: Optional[str] = Field(
         None, title="Target Audience", description="Updated target audience for the event type")
-
 
 class Event(SQLModel, table=True):
     id: int = Field(default=None, primary_key=True, title="Event ID",
@@ -69,7 +65,6 @@ class Event(SQLModel, table=True):
     tipo_evento: Optional[int] = Field(default=None, foreign_key="eventtype.id", title="Event Type",
                                        description="Foreign key for the type of event")
 
-
 class EventUpdate(SQLModel):
     nome: Optional[str] = Field(
         None, title="Event Name", description="Updated name of the event")
@@ -86,7 +81,6 @@ class EventUpdate(SQLModel):
     tipo_evento: Optional[int] = Field(
         None, foreign_key="event_type.id", title="Event Type", description="Updated foreign key for the type of event")
 
-
 class LocalEventLink(SQLModel, table=True):
     id: int = Field(default=None, primary_key=True, title="LocalEvent ID",
                     description="Unique identifier for the local-event relationship", nullable=False)
@@ -94,3 +88,9 @@ class LocalEventLink(SQLModel, table=True):
                                     description="Foreign key for the location")
     event_id: Optional[int] = Field(default=None, foreign_key="event.id", title="Event ID",
                                     description="Foreign key for the event")
+
+class LocalEventLinkUpdate(SQLModel):
+    local_id: Optional[int] = Field(
+        None, foreign_key="local.id", title="Local ID", description="Foreign key for the location")
+    event_id: Optional[int] = Field(
+        None, foreign_key="event.id", title="Event ID",description="Foreign key for the event")
